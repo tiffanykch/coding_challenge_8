@@ -91,3 +91,21 @@ function filterLargeTransactions(transactions, filterFunction) {
 
 // Test Data
 filterLargeTransactions(transactions, amount => amount > 1000);
+
+// TASK 7: CLOSURES - SHOPPING CART TRACKER
+
+// Create function that returns another to add items and maintaing running total
+function createCartTracker() {
+    let totalItems = 0
+    return function(value) {
+        totalItems += value
+        return `Total Cart Value: $${totalItems}`
+    }
+}
+
+// Test Data
+let cart = createCartTracker();
+
+console.log(cart(20));
+
+console.log(cart(35));
